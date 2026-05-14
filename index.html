@@ -4,99 +4,422 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NailStyle Studio | AI Nail Preview App</title>
-  <meta name="description" content="NailStyle Studio lets you preview nail colors, shapes and designs on your own hand photo using AI." />
+  <meta name="description" content="NailStyle Studio is an AI nail preview app that lets you try nail colors, shapes, finishes and designs on your own hand photo." />
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, #fff7fb, #ffe6f2, #f7ecff);
-      color: #1f1f29;
+      background:
+        radial-gradient(circle at top left, rgba(255, 170, 220, 0.55), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(201, 87, 255, 0.28), transparent 34%),
+        linear-gradient(135deg, #fff8fc, #ffe8f4, #f8efff);
+      color: #211827;
     }
-    .wrap {
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
       min-height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 26px 22px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 32px;
-      text-align: center;
+      justify-content: space-between;
+      gap: 18px;
     }
-    .card {
-      max-width: 760px;
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(214, 80, 170, 0.18);
-      border-radius: 32px;
-      padding: 48px 28px;
-      box-shadow: 0 24px 70px rgba(197, 65, 160, 0.16);
-      backdrop-filter: blur(16px);
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
     }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ff63b7, #c735df);
+      display: grid;
+      place-items: center;
+      color: white;
+      box-shadow: 0 14px 30px rgba(207, 50, 180, 0.22);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #7d6d82;
+    }
+
+    nav a:hover {
+      color: #c026d3;
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 54px 22px 70px;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(209, 55, 190, 0.14);
+      color: #bd27c9;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(199, 65, 160, 0.10);
+      margin-bottom: 22px;
+    }
+
     h1 {
-      font-size: clamp(42px, 8vw, 76px);
-      margin: 0 0 14px;
-      letter-spacing: -0.05em;
-      background: linear-gradient(90deg, #cc2bd6, #ff4f96, #ff9a72);
+      margin: 0;
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+      background: linear-gradient(90deg, #b923d8, #ff3f93, #ff9a72);
       -webkit-background-clip: text;
       color: transparent;
     }
-    p {
-      font-size: 19px;
-      line-height: 1.6;
-      color: #6d6470;
-      margin: 0 auto 28px;
+
+    .subtitle {
+      margin: 24px 0 0;
       max-width: 620px;
+      font-size: 21px;
+      line-height: 1.55;
+      color: #6d6470;
     }
-    .badge {
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
       display: inline-flex;
-      gap: 10px;
       align-items: center;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(204, 43, 214, 0.1);
-      color: #b225c4;
-      font-weight: 700;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 16px;
+      font-weight: 850;
+    }
+
+    .primary {
+      color: white;
+      background: linear-gradient(135deg, #c026d3, #ff3f93);
+      box-shadow: 0 16px 34px rgba(207, 50, 180, 0.22);
+    }
+
+    .secondary {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(199, 65, 160, 0.15);
+      color: #b923d8;
+    }
+
+    .mockup {
+      position: relative;
+      padding: 28px;
+      border-radius: 38px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: 0 28px 80px rgba(169, 67, 140, 0.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .app-card {
+      border-radius: 34px;
+      padding: 34px 26px;
+      min-height: 430px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.75), transparent 32%),
+        linear-gradient(135deg, #fff3fb, #ffd8ec, #f3e5ff);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.65);
+    }
+
+    .icon-bubble {
+      width: 150px;
+      height: 150px;
+      border-radius: 38px;
+      background: linear-gradient(135deg, #ff72bc, #d33ee4);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 58px;
+      box-shadow: 0 24px 50px rgba(210, 55, 180, 0.24);
       margin-bottom: 22px;
     }
-    .links {
-      display: flex;
-      justify-content: center;
+
+    .app-card h2 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: -0.04em;
+    }
+
+    .app-card p {
+      color: #7a687c;
+      line-height: 1.55;
+      margin: 12px 0 0;
+      max-width: 330px;
+    }
+
+    section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 54px 22px;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 34px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: -0.055em;
+    }
+
+    .section-title p {
+      color: #766b7a;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 28px;
     }
-    a {
+
+    .feature {
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(205, 70, 178, 0.13);
+      box-shadow: 0 14px 34px rgba(169, 67, 140, 0.10);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(204, 43, 214, 0.1);
       color: #c026d3;
-      text-decoration: none;
-      font-weight: 700;
+      font-size: 23px;
+      margin-bottom: 16px;
     }
-    a:hover { text-decoration: underline; }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .feature p {
+      margin: 0;
+      color: #776c7b;
+      line-height: 1.55;
+    }
+
+    .disclaimer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(205, 70, 178, 0.14);
+      text-align: center;
+      color: #766b7a;
+      line-height: 1.6;
+    }
+
     footer {
-      margin-top: 34px;
-      font-size: 13px;
-      color: #928895;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 22px 44px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: #887d8d;
+      font-size: 14px;
+    }
+
+    footer .links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-weight: 750;
+    }
+
+    @media (max-width: 860px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 34px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mockup {
+        padding: 16px;
+      }
+
+      .app-card {
+        min-height: 360px;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="card">
-      <div class="badge">✨ AI Powered · Your Style · Your Nails</div>
-      <h1>NailStyle Studio</h1>
-      <p>
-        Preview nail colors, shapes, finishes and creative designs on your own hand photo before your next salon visit.
-      </p>
-      <p>
-        NailStyle Studio is an AI nail preview app for inspiration, planning and trying manicure ideas visually.
-      </p>
+  <div class="page">
+    <header>
+      <a class="brand" href="index.html">
+        <span class="brand-mark">✦</span>
+        <span>NailStyle Studio</span>
+      </a>
 
+      <nav>
+        <a href="#features">Features</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="mailto:support@nailstylestudio.com">Support</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div>
+        <div class="badge">✨ AI Powered · Your Style · Your Nails</div>
+        <h1>Preview your next manicure before the appointment.</h1>
+        <p class="subtitle">
+          NailStyle Studio helps you try nail colors, shapes, finishes and creative designs on your own hand photo using AI.
+        </p>
+
+        <div class="cta-row">
+          <a class="button primary" href="mailto:support@nailstylestudio.com">Contact Support</a>
+          <a class="button secondary" href="#how">How it works</a>
+        </div>
+      </div>
+
+      <div class="mockup" aria-label="NailStyle Studio app preview">
+        <div class="app-card">
+          <div class="icon-bubble">💅</div>
+          <h2>NailStyle Studio</h2>
+          <p>
+            Upload a hand photo, describe your design, choose your style options and generate a realistic nail preview.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <section id="how">
+      <div class="section-title">
+        <h2>How it works</h2>
+        <p>A simple AI nail preview flow designed for inspiration before your salon visit.</p>
+      </div>
+
+      <div class="grid">
+        <div class="feature">
+          <div class="feature-icon">1</div>
+          <h3>Add your hand photo</h3>
+          <p>Choose a clear hand photo from your library or take a new one with your camera.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">2</div>
+          <h3>Describe the design</h3>
+          <p>Write the colors, nail art, finish, length and style you want to preview.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">3</div>
+          <h3>Generate & save</h3>
+          <p>Create your AI preview, save it to your gallery, share it, or keep it for your appointment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="section-title">
+        <h2>Made for nail inspiration</h2>
+        <p>Try styles visually before committing to your next look.</p>
+      </div>
+
+      <div class="grid">
+        <div class="feature">
+          <div class="feature-icon">🎨</div>
+          <h3>Colors & combinations</h3>
+          <p>Preview red, nude, chrome, ombré, floral, glitter and custom ideas.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">✨</div>
+          <h3>Shapes & finishes</h3>
+          <p>Explore almond, square, oval, coffin, glossy, matte, chrome and more.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">📷</div>
+          <h3>Your own photo</h3>
+          <p>Use your hand photo for a more personal and useful AI nail preview.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="disclaimer">
+        <strong>AI preview disclaimer:</strong>
+        NailStyle Studio previews are for inspiration only. Final salon results may vary depending on nail length,
+        shape, lighting, products and technician.
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2026 NailStyle Studio. All rights reserved.</div>
       <div class="links">
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Use</a>
         <a href="mailto:support@nailstylestudio.com">Contact Support</a>
       </div>
-
-      <footer>
-        © 2026 NailStyle Studio. All rights reserved.
-      </footer>
-    </section>
-  </main>
+    </footer>
+  </div>
 </body>
 </html>
