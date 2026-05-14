@@ -30,7 +30,7 @@
       box-shadow: 0 14px 30px rgba(207, 50, 180, 0.22);
     }
     .nav-wrap { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-    nav { display: flex; gap: 18px; font-size: 14px; font-weight: 700; color: #7d6d82; }
+    nav { display: flex; gap: 18px; font-size: 14px; font-weight: 700; color: #7d6d82; flex-wrap: wrap; }
     nav a:hover { color: #c026d3; }
     .lang {
       display: flex; gap: 6px; padding: 5px; border-radius: 999px;
@@ -118,6 +118,40 @@
     }
     .feature h3 { margin: 0 0 8px; font-size: 20px; }
     .feature p { margin: 0; color: #776c7b; line-height: 1.55; }
+    .support-card {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(205, 70, 178, 0.16);
+      box-shadow: 0 18px 46px rgba(169, 67, 140, 0.12);
+      text-align: center;
+    }
+    .support-card h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.045em;
+    }
+    .support-card p {
+      margin: 0 auto 16px;
+      max-width: 660px;
+      color: #766b7a;
+      line-height: 1.6;
+      font-size: 17px;
+    }
+    .support-email {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(204, 43, 214, 0.10);
+      color: #b923d8;
+      font-weight: 900;
+      word-break: break-word;
+    }
+    .support-email:hover { text-decoration: underline; }
     .disclaimer {
       max-width: 900px; margin: 0 auto; padding: 24px; border-radius: 26px;
       background: rgba(255,255,255,0.62); border: 1px solid rgba(205, 70, 178, 0.14);
@@ -149,9 +183,9 @@
       <div class="nav-wrap">
         <nav>
           <a href="#features" data-i18n="navFeatures">Features</a>
+          <a href="#support" data-i18n="navSupport">Support</a>
           <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
           <a href="terms.html" data-i18n="navTerms">Terms</a>
-          <a href="mailto:support@nailstylestudio.com" data-i18n="navSupport">Support</a>
         </nav>
 
         <div class="lang">
@@ -236,6 +270,16 @@
       </div>
     </section>
 
+    <section id="support">
+      <div class="support-card">
+        <h2 data-i18n="supportTitle">Support</h2>
+        <p data-i18n="supportText">
+          Need help with NailStyle Studio, privacy questions, or app support? Contact us anytime at:
+        </p>
+        <a class="support-email" href="mailto:support@nailstylestudio.com">support@nailstylestudio.com</a>
+      </div>
+    </section>
+
     <section>
       <div class="disclaimer">
         <strong data-i18n="disclaimerTitle">AI preview disclaimer:</strong>
@@ -248,7 +292,7 @@
       <div class="links">
         <a href="privacy.html" data-i18n="privacyPolicy">Privacy Policy</a>
         <a href="terms.html" data-i18n="termsOfUse">Terms of Use</a>
-        <a href="mailto:support@nailstylestudio.com" data-i18n="contactSupport">Contact Support</a>
+        <a href="mailto:support@nailstylestudio.com">support@nailstylestudio.com</a>
       </div>
     </footer>
   </div>
@@ -257,9 +301,9 @@
     const translations = {
       en: {
         navFeatures: "Features",
+        navSupport: "Support",
         navPrivacy: "Privacy",
         navTerms: "Terms",
-        navSupport: "Support",
         badge: "✨ AI Powered · Your Style · Your Nails",
         heroTitle: "Preview your next manicure before the appointment.",
         heroSubtitle: "NailStyle Studio helps you try nail colors, shapes, finishes and creative designs on your own hand photo using AI.",
@@ -282,6 +326,8 @@
         feature2Text: "Explore almond, square, oval, coffin, glossy, matte, chrome and more.",
         feature3Title: "Your own photo",
         feature3Text: "Use your hand photo for a more personal and useful AI nail preview.",
+        supportTitle: "Support",
+        supportText: "Need help with NailStyle Studio, privacy questions, or app support? Contact us anytime at:",
         disclaimerTitle: "AI preview disclaimer:",
         disclaimerText: "NailStyle Studio previews are for inspiration only. Final salon results may vary depending on nail length, shape, lighting, products and technician.",
         copyright: "© 2026 NailStyle Studio. All rights reserved.",
@@ -290,9 +336,9 @@
       },
       el: {
         navFeatures: "Χαρακτηριστικά",
+        navSupport: "Υποστήριξη",
         navPrivacy: "Απόρρητο",
         navTerms: "Όροι",
-        navSupport: "Υποστήριξη",
         badge: "✨ Με AI · Το στυλ σου · Τα νύχια σου",
         heroTitle: "Δες το επόμενο μανικιούρ σου πριν το ραντεβού.",
         heroSubtitle: "Το NailStyle Studio σε βοηθά να δοκιμάσεις χρώματα, σχήματα, τελειώματα και δημιουργικά σχέδια νυχιών πάνω στη δική σου φωτογραφία με AI.",
@@ -315,6 +361,8 @@
         feature2Text: "Δοκίμασε almond, square, oval, coffin, glossy, matte, chrome και άλλα.",
         feature3Title: "Η δική σου φωτογραφία",
         feature3Text: "Χρησιμοποίησε φωτογραφία του χεριού σου για πιο προσωπικό και χρήσιμο AI nail preview.",
+        supportTitle: "Υποστήριξη",
+        supportText: "Χρειάζεσαι βοήθεια με το NailStyle Studio, έχεις ερώτηση απορρήτου ή χρειάζεσαι υποστήριξη για την εφαρμογή; Επικοινώνησε μαζί μας στο:",
         disclaimerTitle: "Σημείωση AI preview:",
         disclaimerText: "Τα previews του NailStyle Studio είναι μόνο για έμπνευση. Το τελικό αποτέλεσμα μπορεί να διαφέρει ανάλογα με μήκος, σχήμα, φωτισμό, προϊόντα και τεχνίτη.",
         copyright: "© 2026 NailStyle Studio. Με επιφύλαξη παντός δικαιώματος.",
