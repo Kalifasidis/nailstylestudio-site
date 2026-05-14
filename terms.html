@@ -5,71 +5,202 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms of Use | NailStyle Studio</title>
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #fff7fb;
+      background: linear-gradient(135deg, #fff8fc, #ffe8f4, #f8efff);
       color: #1f1f29;
       line-height: 1.7;
     }
     main {
-      max-width: 820px;
+      max-width: 880px;
       margin: 0 auto;
-      padding: 48px 22px;
+      padding: 44px 22px 64px;
     }
-    h1, h2 { color: #1f1f29; }
-    a { color: #c026d3; font-weight: 700; }
-    .back {
-      display: inline-block;
+    .card {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(205, 70, 178, 0.14);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: 0 22px 60px rgba(169, 67, 140, 0.12);
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
       margin-bottom: 24px;
+    }
+    a { color: #c026d3; font-weight: 700; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(36px, 6vw, 56px);
+      letter-spacing: -0.05em;
+      background: linear-gradient(90deg, #b923d8, #ff3f93, #ff9a72);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    h2 {
+      margin-top: 30px;
+      color: #211827;
+      letter-spacing: -0.02em;
+    }
+    p, li { color: #5f5664; }
+    .lang {
+      display: flex;
+      gap: 6px;
+      padding: 5px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(199,65,160,0.14);
+    }
+    .lang button {
+      border: 0;
+      border-radius: 999px;
+      padding: 7px 10px;
+      cursor: pointer;
+      background: transparent;
+      color: #8a6f8f;
+      font-weight: 800;
+    }
+    .lang button.active {
+      background: linear-gradient(135deg, #c026d3, #ff3f93);
+      color: white;
+    }
+    .muted {
+      color: #887d8d;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
   <main>
-    <a class="back" href="index.html">← Back to NailStyle Studio</a>
+    <div class="top">
+      <a href="index.html" data-i18n="back">← Back to NailStyle Studio</a>
+      <div class="lang">
+        <button id="btn-en" type="button" onclick="setLanguage('en')">EN</button>
+        <button id="btn-el" type="button" onclick="setLanguage('el')">EL</button>
+      </div>
+    </div>
 
-    <h1>Terms of Use</h1>
-    <p><strong>Last updated:</strong> May 14, 2026</p>
+    <section class="card">
+      <h1 data-i18n="title">Terms of Use</h1>
+      <p class="muted"><strong data-i18n="lastUpdatedLabel">Last updated:</strong> May 14, 2026</p>
 
-    <p>
-      By using NailStyle Studio, you agree to these Terms of Use.
-    </p>
+      <p data-i18n="intro">
+        By using NailStyle Studio, you agree to these Terms of Use.
+      </p>
 
-    <h2>Use of the App</h2>
-    <p>
-      NailStyle Studio allows users to generate AI nail previews using uploaded hand photos and design descriptions.
-      You agree to use the app only for lawful and personal purposes.
-    </p>
+      <h2 data-i18n="useTitle">Use of the App</h2>
+      <p data-i18n="useText">
+        NailStyle Studio allows users to generate AI nail previews using uploaded hand photos, design descriptions, and selected style options. You agree to use the app only for lawful and personal purposes.
+      </p>
 
-    <h2>Generated Content</h2>
-    <p>
-      AI-generated previews are provided for inspiration and visualization purposes only.
-      Results may vary and are not guaranteed to perfectly represent real-world salon outcomes.
-    </p>
+      <h2 data-i18n="photoTitle">Uploaded Photos and User Content</h2>
+      <p data-i18n="photoText">
+        You are responsible for the photos, descriptions, and other content you upload or submit through the app. You should only upload content that you own or have permission to use.
+      </p>
 
-    <h2>User Responsibility</h2>
-    <p>
-      You are responsible for the content you upload and generate through the app.
-      You agree not to upload illegal, harmful, abusive, or infringing material.
-    </p>
+      <h2 data-i18n="generatedTitle">Generated Content</h2>
+      <p data-i18n="generatedText">
+        AI-generated previews are provided for inspiration and visualization purposes only. Results may vary and are not guaranteed to perfectly represent real-world salon outcomes.
+      </p>
 
-    <h2>Availability</h2>
-    <p>
-      We may update, modify, suspend, or discontinue parts of the app or website at any time without notice.
-    </p>
+      <h2 data-i18n="responsibilityTitle">User Responsibility</h2>
+      <p data-i18n="responsibilityText">
+        You agree not to upload, generate, or share illegal, harmful, abusive, misleading, infringing, or inappropriate material through the app.
+      </p>
 
-    <h2>Limitation of Liability</h2>
-    <p>
-      NailStyle Studio is provided “as is” without warranties of any kind.
-      We are not responsible for any damages, losses, or issues arising from the use of the app or generated results.
-    </p>
+      <h2 data-i18n="aiTitle">AI Preview Disclaimer</h2>
+      <p data-i18n="aiText">
+        NailStyle Studio previews are not professional beauty advice and do not guarantee a final manicure result. Real results may depend on nail length, nail shape, lighting, products, and technician.
+      </p>
 
-    <h2>Contact</h2>
-    <p>
-      For support or legal inquiries, contact:
-      <a href="mailto:support@nailstylestudio.com">support@nailstylestudio.com</a>
-    </p>
+      <h2 data-i18n="availabilityTitle">Availability</h2>
+      <p data-i18n="availabilityText">
+        We may update, modify, suspend, or discontinue parts of the app, backend service, or website at any time without notice.
+      </p>
+
+      <h2 data-i18n="liabilityTitle">Limitation of Liability</h2>
+      <p data-i18n="liabilityText">
+        NailStyle Studio is provided “as is” without warranties of any kind. To the maximum extent permitted by law, we are not responsible for damages, losses, or issues arising from the use of the app, website, or generated results.
+      </p>
+
+      <h2 data-i18n="contactTitle">Contact and Support</h2>
+      <p>
+        <span data-i18n="contactText">For support, legal inquiries, or questions about these Terms, contact us at:</span>
+        <a href="mailto:support@nailstylestudio.com">support@nailstylestudio.com</a>
+      </p>
+    </section>
   </main>
+
+  <script>
+    const translations = {
+      en: {
+        back: "← Back to NailStyle Studio",
+        title: "Terms of Use",
+        lastUpdatedLabel: "Last updated:",
+        intro: "By using NailStyle Studio, you agree to these Terms of Use.",
+        useTitle: "Use of the App",
+        useText: "NailStyle Studio allows users to generate AI nail previews using uploaded hand photos, design descriptions, and selected style options. You agree to use the app only for lawful and personal purposes.",
+        photoTitle: "Uploaded Photos and User Content",
+        photoText: "You are responsible for the photos, descriptions, and other content you upload or submit through the app. You should only upload content that you own or have permission to use.",
+        generatedTitle: "Generated Content",
+        generatedText: "AI-generated previews are provided for inspiration and visualization purposes only. Results may vary and are not guaranteed to perfectly represent real-world salon outcomes.",
+        responsibilityTitle: "User Responsibility",
+        responsibilityText: "You agree not to upload, generate, or share illegal, harmful, abusive, misleading, infringing, or inappropriate material through the app.",
+        aiTitle: "AI Preview Disclaimer",
+        aiText: "NailStyle Studio previews are not professional beauty advice and do not guarantee a final manicure result. Real results may depend on nail length, nail shape, lighting, products, and technician.",
+        availabilityTitle: "Availability",
+        availabilityText: "We may update, modify, suspend, or discontinue parts of the app, backend service, or website at any time without notice.",
+        liabilityTitle: "Limitation of Liability",
+        liabilityText: "NailStyle Studio is provided “as is” without warranties of any kind. To the maximum extent permitted by law, we are not responsible for damages, losses, or issues arising from the use of the app, website, or generated results.",
+        contactTitle: "Contact and Support",
+        contactText: "For support, legal inquiries, or questions about these Terms, contact us at:"
+      },
+      el: {
+        back: "← Πίσω στο NailStyle Studio",
+        title: "Όροι Χρήσης",
+        lastUpdatedLabel: "Τελευταία ενημέρωση:",
+        intro: "Χρησιμοποιώντας το NailStyle Studio, συμφωνείς με αυτούς τους Όρους Χρήσης.",
+        useTitle: "Χρήση της Εφαρμογής",
+        useText: "Το NailStyle Studio επιτρέπει στους χρήστες να δημιουργούν AI nail previews χρησιμοποιώντας φωτογραφίες χεριού, περιγραφές σχεδίου και επιλογές στυλ. Συμφωνείς να χρησιμοποιείς την εφαρμογή μόνο για νόμιμους και προσωπικούς σκοπούς.",
+        photoTitle: "Φωτογραφίες και Περιεχόμενο Χρήστη",
+        photoText: "Είσαι υπεύθυνος/η για τις φωτογραφίες, τις περιγραφές και το περιεχόμενο που ανεβάζεις ή υποβάλλεις μέσω της εφαρμογής. Πρέπει να ανεβάζεις μόνο περιεχόμενο που σου ανήκει ή έχεις άδεια να χρησιμοποιήσεις.",
+        generatedTitle: "Generated Content",
+        generatedText: "Τα AI-generated previews παρέχονται μόνο για έμπνευση και οπτικοποίηση. Τα αποτελέσματα μπορεί να διαφέρουν και δεν εγγυώνται ακριβή αντιστοίχιση με πραγματικό αποτέλεσμα salon.",
+        responsibilityTitle: "Ευθύνη Χρήστη",
+        responsibilityText: "Συμφωνείς να μην ανεβάζεις, δημιουργείς ή κοινοποιείς παράνομο, επιβλαβές, προσβλητικό, παραπλανητικό, παραβιαστικό ή ακατάλληλο υλικό μέσω της εφαρμογής.",
+        aiTitle: "Σημείωση AI Preview",
+        aiText: "Τα previews του NailStyle Studio δεν αποτελούν επαγγελματική συμβουλή ομορφιάς και δεν εγγυώνται τελικό αποτέλεσμα μανικιούρ. Το πραγματικό αποτέλεσμα μπορεί να εξαρτάται από μήκος, σχήμα, φωτισμό, προϊόντα και τεχνίτη.",
+        availabilityTitle: "Διαθεσιμότητα",
+        availabilityText: "Μπορούμε να ενημερώσουμε, τροποποιήσουμε, αναστείλουμε ή διακόψουμε τμήματα της εφαρμογής, του backend service ή του website οποιαδήποτε στιγμή χωρίς προειδοποίηση.",
+        liabilityTitle: "Περιορισμός Ευθύνης",
+        liabilityText: "Το NailStyle Studio παρέχεται «ως έχει», χωρίς εγγυήσεις οποιουδήποτε είδους. Στο μέγιστο βαθμό που επιτρέπεται από τον νόμο, δεν ευθυνόμαστε για ζημιές, απώλειες ή προβλήματα που προκύπτουν από τη χρήση της εφαρμογής, του website ή των generated results.",
+        contactTitle: "Επικοινωνία και Υποστήριξη",
+        contactText: "Για υποστήριξη, νομικά θέματα ή ερωτήσεις σχετικά με αυτούς τους Όρους, επικοινώνησε μαζί μας στο:"
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem("nailstyle_language", lang);
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+      document.getElementById("btn-el").classList.toggle("active", lang === "el");
+    }
+
+    setLanguage(localStorage.getItem("nailstyle_language") || "en");
+  </script>
 </body>
 </html>
