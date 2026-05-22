@@ -7,6 +7,7 @@
   <meta name="description" content="NailStyle Studio is an AI nail preview app that lets you try nail colors, shapes, finishes and designs on your own hand photo." />
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -16,134 +17,351 @@
         linear-gradient(135deg, #fff8fc, #ffe8f4, #f8efff);
       color: #211827;
     }
-    a { color: inherit; text-decoration: none; }
-    .page { min-height: 100vh; overflow: hidden; }
-    header {
-      max-width: 1120px; margin: 0 auto; padding: 26px 22px;
-      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.03em; }
+
+    .page {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 26px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
     .brand img {
-      width: 48px; height: 48px; border-radius: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       box-shadow: 0 14px 30px rgba(207, 50, 180, 0.22);
     }
-    .nav-wrap { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-    nav { display: flex; gap: 18px; font-size: 14px; font-weight: 700; color: #7d6d82; flex-wrap: wrap; }
-    nav a:hover { color: #c026d3; }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #7d6d82;
+      flex-wrap: wrap;
+    }
+
+    nav a:hover {
+      color: #c026d3;
+    }
+
     .lang {
-      display: flex; gap: 6px; padding: 5px; border-radius: 999px;
-      background: rgba(255,255,255,0.72); border: 1px solid rgba(199,65,160,0.14);
+      display: flex;
+      gap: 6px;
+      padding: 5px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(199,65,160,0.14);
     }
+
     .lang button {
-      border: 0; border-radius: 999px; padding: 7px 10px; cursor: pointer;
-      background: transparent; color: #8a6f8f; font-weight: 800;
+      border: 0;
+      border-radius: 999px;
+      padding: 7px 10px;
+      cursor: pointer;
+      background: transparent;
+      color: #8a6f8f;
+      font-weight: 800;
     }
+
     .lang button.active {
       background: linear-gradient(135deg, #c026d3, #ff3f93);
       color: white;
     }
+
     .hero {
-      max-width: 1120px; margin: 0 auto; padding: 54px 22px 70px;
-      display: grid; grid-template-columns: 1.04fr 0.96fr; gap: 52px; align-items: center;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 54px 22px 70px;
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 52px;
+      align-items: center;
     }
+
     .badge {
-      display: inline-flex; align-items: center; gap: 8px; padding: 10px 15px;
-      border-radius: 999px; background: rgba(255,255,255,0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
       border: 1px solid rgba(209, 55, 190, 0.14);
-      color: #bd27c9; font-size: 14px; font-weight: 800;
+      color: #bd27c9;
+      font-size: 14px;
+      font-weight: 800;
       box-shadow: 0 10px 30px rgba(199, 65, 160, 0.10);
       margin-bottom: 22px;
     }
+
     h1 {
-      margin: 0; font-size: clamp(46px, 7vw, 84px); line-height: 0.94;
+      margin: 0;
+      font-size: clamp(46px, 7vw, 84px);
+      line-height: 0.94;
       letter-spacing: -0.075em;
       background: linear-gradient(90deg, #b923d8, #ff3f93, #ff9a72);
-      -webkit-background-clip: text; color: transparent;
+      -webkit-background-clip: text;
+      color: transparent;
     }
+
     .subtitle {
-      margin: 24px 0 0; max-width: 620px; font-size: 21px;
-      line-height: 1.55; color: #6d6470;
+      margin: 24px 0 0;
+      max-width: 620px;
+      font-size: 21px;
+      line-height: 1.55;
+      color: #6d6470;
     }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+      align-items: center;
+    }
+
+    .app-store-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 58px;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    .app-store-badge:hover {
+      transform: translateY(-1px);
+      opacity: 0.92;
+    }
+
+    .app-store-badge img {
+      display: block;
+      height: 58px;
+      width: auto;
+    }
+
     .button {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-height: 50px; padding: 0 22px; border-radius: 16px; font-weight: 850;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 16px;
+      font-weight: 850;
     }
+
     .primary {
-      color: white; background: linear-gradient(135deg, #c026d3, #ff3f93);
+      color: white;
+      background: linear-gradient(135deg, #c026d3, #ff3f93);
       box-shadow: 0 16px 34px rgba(207, 50, 180, 0.22);
     }
+
     .secondary {
       background: rgba(255,255,255,0.72);
       border: 1px solid rgba(199, 65, 160, 0.15);
       color: #b923d8;
     }
+
     .hero-icon-wrap {
-      padding: 28px; border-radius: 42px; background: rgba(255,255,255,0.55);
+      padding: 28px;
+      border-radius: 42px;
+      background: rgba(255,255,255,0.55);
       border: 1px solid rgba(255,255,255,0.74);
       box-shadow: 0 28px 80px rgba(169, 67, 140, 0.18);
       backdrop-filter: blur(18px);
     }
+
     .hero-icon {
       width: 100%;
       display: block;
       border-radius: 34px;
       filter: drop-shadow(0 24px 38px rgba(182, 50, 150, 0.22));
     }
-    section { max-width: 1120px; margin: 0 auto; padding: 54px 22px; }
-    .section-title { text-align: center; max-width: 720px; margin: 0 auto 34px; }
-    .section-title h2 { margin: 0; font-size: clamp(32px, 5vw, 52px); letter-spacing: -0.055em; }
-    .section-title p { color: #766b7a; font-size: 18px; line-height: 1.55; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+    section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 54px 22px;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 34px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: -0.055em;
+    }
+
+    .section-title p {
+      color: #766b7a;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
     .feature {
-      padding: 24px; border-radius: 26px; background: rgba(255,255,255,0.72);
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.72);
       border: 1px solid rgba(205, 70, 178, 0.13);
       box-shadow: 0 14px 34px rgba(169, 67, 140, 0.10);
     }
+
     .feature-icon {
-      width: 48px; height: 48px; border-radius: 16px; display: grid; place-items: center;
-      background: rgba(204, 43, 214, 0.1); color: #c026d3; font-size: 23px; margin-bottom: 16px;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(204, 43, 214, 0.1);
+      color: #c026d3;
+      font-size: 23px;
+      margin-bottom: 16px;
       font-weight: 900;
     }
-    .feature h3 { margin: 0 0 8px; font-size: 20px; }
-    .feature p { margin: 0; color: #776c7b; line-height: 1.55; }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .feature p {
+      margin: 0;
+      color: #776c7b;
+      line-height: 1.55;
+    }
+
     .support-card {
-      max-width: 900px; margin: 0 auto; padding: 28px; border-radius: 28px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px;
+      border-radius: 28px;
       background: rgba(255,255,255,0.72);
       border: 1px solid rgba(205, 70, 178, 0.16);
       box-shadow: 0 18px 46px rgba(169, 67, 140, 0.12);
       text-align: center;
     }
+
     .support-card h2 {
-      margin: 0 0 10px; font-size: clamp(28px, 4vw, 42px); letter-spacing: -0.045em;
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.045em;
     }
+
     .support-card p {
-      margin: 0 auto 16px; max-width: 660px; color: #766b7a;
-      line-height: 1.6; font-size: 17px;
+      margin: 0 auto 16px;
+      max-width: 660px;
+      color: #766b7a;
+      line-height: 1.6;
+      font-size: 17px;
     }
+
     .support-email {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 12px 18px; border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
       background: rgba(204, 43, 214, 0.10);
-      color: #b923d8; font-weight: 900; word-break: break-word;
+      color: #b923d8;
+      font-weight: 900;
+      word-break: break-word;
     }
-    .support-email:hover { text-decoration: underline; }
+
+    .support-email:hover {
+      text-decoration: underline;
+    }
+
     .disclaimer {
-      max-width: 900px; margin: 0 auto; padding: 24px; border-radius: 26px;
-      background: rgba(255,255,255,0.62); border: 1px solid rgba(205, 70, 178, 0.14);
-      text-align: center; color: #766b7a; line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(205, 70, 178, 0.14);
+      text-align: center;
+      color: #766b7a;
+      line-height: 1.6;
     }
+
     footer {
-      max-width: 1120px; margin: 0 auto; padding: 32px 22px 44px;
-      display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-      color: #887d8d; font-size: 14px;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 22px 44px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: #887d8d;
+      font-size: 14px;
     }
-    footer .links { display: flex; gap: 16px; flex-wrap: wrap; font-weight: 750; }
+
+    footer .links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-weight: 750;
+    }
+
     @media (max-width: 860px) {
-      header { align-items: flex-start; flex-direction: column; }
-      .hero { grid-template-columns: 1fr; padding-top: 34px; }
-      .grid { grid-template-columns: 1fr; }
-      .hero-icon-wrap { padding: 16px; }
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 34px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-icon-wrap {
+        padding: 16px;
+      }
+
+      .app-store-badge,
+      .app-store-badge img {
+        height: 54px;
+      }
     }
   </style>
 </head>
@@ -173,12 +391,27 @@
     <main class="hero">
       <div>
         <div class="badge" data-i18n="badge">✨ AI Powered · Your Style · Your Nails</div>
+
         <h1 data-i18n="heroTitle">Preview your next manicure before the appointment.</h1>
+
         <p class="subtitle" data-i18n="heroSubtitle">
           NailStyle Studio helps you try nail colors, shapes, finishes and creative designs on your own hand photo using AI.
         </p>
 
         <div class="cta-row">
+          <a
+            class="app-store-badge"
+            href="https://apps.apple.com/app/id6770460007"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download NailStyle Studio on the App Store"
+          >
+            <img
+              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              alt="Download on the App Store"
+            >
+          </a>
+
           <a class="button primary" href="mailto:support@nailstylestudio.com" data-i18n="contactSupport">Contact Support</a>
           <a class="button secondary" href="#how" data-i18n="howItWorksButton">How it works</a>
         </div>
@@ -201,11 +434,13 @@
           <h3 data-i18n="step1Title">Add your hand photo</h3>
           <p data-i18n="step1Text">Choose a clear hand photo from your library or take a new one with your camera.</p>
         </div>
+
         <div class="feature">
           <div class="feature-icon">2</div>
           <h3 data-i18n="step2Title">Describe the design</h3>
           <p data-i18n="step2Text">Write the colors, nail art, finish, length and style you want to preview.</p>
         </div>
+
         <div class="feature">
           <div class="feature-icon">3</div>
           <h3 data-i18n="step3Title">Generate & save</h3>
@@ -226,11 +461,13 @@
           <h3 data-i18n="feature1Title">Colors & combinations</h3>
           <p data-i18n="feature1Text">Preview red, nude, chrome, ombré, floral, glitter and custom ideas.</p>
         </div>
+
         <div class="feature">
           <div class="feature-icon">✨</div>
           <h3 data-i18n="feature2Title">Shapes & finishes</h3>
           <p data-i18n="feature2Text">Explore almond, square, oval, coffin, glossy, matte, chrome and more.</p>
         </div>
+
         <div class="feature">
           <div class="feature-icon">📷</div>
           <h3 data-i18n="feature3Title">Your own photo</h3>
@@ -341,10 +578,14 @@
     function setLanguage(lang) {
       localStorage.setItem("nailstyle_language", lang);
       document.documentElement.lang = lang;
+
       document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
-        if (translations[lang][key]) el.textContent = translations[lang][key];
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
       });
+
       document.getElementById("btn-en").classList.toggle("active", lang === "en");
       document.getElementById("btn-el").classList.toggle("active", lang === "el");
     }
